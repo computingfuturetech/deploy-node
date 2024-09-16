@@ -3,8 +3,11 @@ const app = express();
 
 const port = 9000;
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
-    res.json({message : 'Hello World'});
+    const { name } = req.body;
+    res.json({message : `Hello ${name}`});
 })
 
 app.listen(9000, () => {
